@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Reservation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Welcome to the Airline Reservation System</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('display_flights') }}">Display Available Flights</a></li>
+            <li><a href="{{ url_for('book_seat') }}">Book a Seat</a></li>
+            <li><a href="{{ url_for('display_ticket') }}">Display Ticket Details</a></li>
+            <li><a href="{{ url_for('delete_ticket') }}">Delete a Ticket</a></li>
+        </ul>
+    </nav>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
